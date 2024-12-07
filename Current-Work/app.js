@@ -1,5 +1,6 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
+const userModel = require("./models/user");
 
 const app = express();
 const path = require("path");
@@ -16,6 +17,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req,res) => {
     res.render("index");
+});
+
+app.post("/create", async (req,res) => {
+    let {username, email, password, age} = req.body;
+    let createdUser = await userModel.create({
+        username,
+        email,
+        password,
+        age
+    });
+    res.send(createdUser);
 });
 
 app.listen(PORT, () => {

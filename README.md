@@ -12,3 +12,6 @@ model
 usercreate -> password -> hash
 jwt token -> cookie
 
+Login -> token -> decrypt -> email
+
+
