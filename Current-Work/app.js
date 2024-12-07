@@ -1,13 +1,23 @@
+const cookieParser = require("cookie-parser");
 const express = require("express");
-const app = express();
 
+const app = express();
+const path = require("path");
+const PORT = 3000;
+const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+
+
+app.set("view engine", "ejs");
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req,res) => {
-    res.cookie("name", "farhan")
-    res.send("hello world");
+    res.render("index");
 });
 
-
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("BackEnd is running on PORT 3000....")
-})
+});
