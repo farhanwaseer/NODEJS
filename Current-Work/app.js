@@ -25,7 +25,7 @@ app.get("/signup", (req,res) => {
     res.render("signup");
 });
 
-app.post("/create",  (req,res) => {
+app.post("/signup",  (req,res) => {
     let {username, email, password, age} = req.body;
 
     bcrypt.genSalt(10, (err,salt) => {        
@@ -38,7 +38,7 @@ app.post("/create",  (req,res) => {
             });
             let token = jwt.sign({email}, "farhanwaseerapp");
             res.cookie("token", token);
-            res.send(createdUser);
+            res.render("readuser", {createdUser});
 
          })
     });
@@ -49,6 +49,14 @@ app.get("/login", (req,res) => {
     res.render("login")
 });
 
+// app.get("/readuser", (req,res) => {
+//     res.render("readuser");
+// });
+
+// app.get("/profile", (req,res) => {
+//     res.render("profile");
+// });
+
 app.post("/login", async (req,res) => {
     let user = await userModel.findOne({email: req.body.email});
     if(!user) return res.send("Something went wrong");
@@ -58,7 +66,8 @@ app.post("/login", async (req,res) => {
             let secret = "farhanwaseerapp";
             let token = jwt.sign({email: user.email}, secret);
             res.cookie("token", token);
-            res.send("Yes you can login");
+            // res.send("you are logined ")
+            res.render("profile", {user})
         }
         else res.send("Something went wrong");
     });
