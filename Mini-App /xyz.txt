@@ -1,0 +1,22 @@
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+
+///////////
+
+$2b$10$v1NinzpNCwAK5MxxsTBLZek/KOMpFqoRz5RXgAPFceYCfjTXAgAP2
+
+////////////////
+
+app.get("/", (req,res) => {
+   
+    let token = jwt.sign({email: "waseer@gmail.com"}, "secret");
+    res.cookie("token", token);
+    res.send("done");   
+});
+
+app.get("/read", (req,res) => {
+      
+    let data = jwt.verify(req.cookies.token, "secret");
+    console.log(data)
+
+});
