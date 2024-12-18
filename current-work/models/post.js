@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    contant: String,
+    content: String,
     likes: [ 
         { type: mongoose.Schema.Types.ObjectId, ref: "user"}
     ]

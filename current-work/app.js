@@ -33,8 +33,24 @@ app.get("/login",(req,res)=> {
 
 app.get("/profile", isLoggedIn, async (req,res) => {
   console.log(req.user)
-  let user = await userModel.findOne({email: req.user.email})
+  let user = await userModel.findOne({email: req.user.email}).populate("posts")
   res.render("profile", {user});
+});
+
+app.post("/post", isLoggedIn, async (req,res) => {
+
+  let user = await userModel.findOne({email: req.user.email})
+  let {content} = req.body;
+
+  let post = await postModel.create({
+    user: user._id,
+    content
+  });
+
+  user.posts.push(post._id);
+  await user.save();
+  res.redirect("/profile");
+  
 });
 
 app.post("/login", async (req,res) => {
@@ -70,7 +86,7 @@ app.post("/signup", async (req,res)=> {
              });
              let token = jwt.sign({email: email, userid: user._id}, "farahanwaseerminiapp");
              res.cookie("token", token);
-             res.send("Registered")
+             res.redirect("/login")
           })
      });
     }

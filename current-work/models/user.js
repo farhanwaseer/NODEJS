@@ -13,7 +13,10 @@ const userSchema = mongoose.Schema({
     age: String,
     password: String,
     posts: [
-        {type: mongoose.Schema.Types.ObjectId, ref: "post"}
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "post"
+        }
     ]
 });
 
