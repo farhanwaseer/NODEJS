@@ -10,8 +10,6 @@ const bcrypt = require('bcrypt');
 const { hash } = require("crypto");
 const cookieParser = require('cookie-parser');
 
-
-
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(cookieParser())
@@ -33,6 +31,12 @@ app.get("/login",(req,res)=> {
 }
 );
 
+app.get("/profile", isLoggedIn, async (req,res) => {
+  console.log(req.user)
+  let user = await userModel.findOne({email: req.user.email})
+  res.render("profile", {user});
+});
+
 app.post("/login", async (req,res) => {
   let {email, password} = req.body;
 
@@ -40,10 +44,13 @@ app.post("/login", async (req,res) => {
   if(!user) return res.status(500).send("Something went wrong");
 
   bcrypt.compare(password, user.password, (err, result) => {
-    if(result)  res.status(200).send("you can login");
+    if(result) {
+      let token = jwt.sign({email: email, userid: user._id}, "farahanwaseerminiapp");
+      res.cookie("token", token);
+      res.status(200).redirect("/profile");
+    } 
     else res.redirect("/login");
   })
-  
 })
 
 app.post("/signup", async (req,res)=> {
@@ -69,10 +76,21 @@ app.post("/signup", async (req,res)=> {
     }
 );
 
+app.get("/logout", (req,res) => {
+  res.cookie("token", "");
+  res.redirect("/login");
+});
 
+function isLoggedIn(req,res,next) {
+  if(req.cookies.token === "") res.redirect("/login");
+  else {
+    let data = jwt.verify(req.cookies.token, "farahanwaseerminiapp");
+    req.user = data;
+    next();
+  }
+}
 
-
-app.listen(3000 , () => {
+app.listen( PORT || 3000 , () => {
     console.log(`Backend server is running on PORT: ${PORT}!`)
 });
 
