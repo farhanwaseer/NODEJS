@@ -47,7 +47,7 @@ coverage/
 # Generated files
 *.tgz
 *.lock
-package-lock.json
+#
 yarn.lock
 
 # Optional npm cache files
