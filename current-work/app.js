@@ -71,8 +71,8 @@ app.get("/post/edit/:id", isLoggedIn, async (req,res) => {
    res.render("editPost", {post});
 });
 
-app.post("/post/edit/:id", isLoggedIn, async (req,res) => {
-  let post = await postModel.findOneAndUpdate({_id: req.params.id}, {content: req.body.content});
+app.get("/post/delete/:id", isLoggedIn, async (req,res) => {
+  let post = await postModel.findOneAndDelete({_id: req.params.id});
   res.redirect("/profile");
 });
 
