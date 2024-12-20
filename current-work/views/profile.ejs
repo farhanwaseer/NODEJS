@@ -43,9 +43,13 @@
                         <h4 class="text-blue-500 mb-2">@<%= user.username%></h4>
                         <p class="text-sm tracking-tight"><%= post.content %> </p>
                         <small class="mt-2 inline-block"><%= post.likes.length %> Likes</small>
-                        <div class="btns gap-4 flex mt-2" >
-                            <a class="text-blue-500" href="/like/<%= post._id %>"> <%= post.likes.indexOf(user._id) === -1 ? "Like" : "Unlike" %></a>
-                            <a class="text-zinc-500" href="">edit</a>
+                        <hr >
+                        <div class="btns mt-4 gap-4  flex items-center " >
+                            <a class="text-blue-500 " href="/like/<%= post._id %>"> <%= post.likes.indexOf(user._id) === -1 ? "Like" : "Unlike" %></a>
+                            <ul class=" gap-2 flex ml-auto">
+                              <li> <a class="text-zinc-500" href="/post/edit/<%= post._id %>">edit</a></li>
+                              <li><a class="text-zinc-500" href="/post/delete/<%= post._id %>">delete</a></li>
+                             </ul>                      
                         </div>
                     </div>
                <% }) %>
