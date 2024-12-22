@@ -3,14 +3,15 @@ const app = express();
 const path = require("path");
 const userModel = require('./models/user');
 const postModel = require("./models/post");
-const multer = require("multer");
 const crypto = require("crypto");
+const multerconfig = require("./config/multerconfig");
 
 const PORT = 3000;
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 const { hash } = require("crypto");
 const cookieParser = require('cookie-parser');
+const upload = require('./config/multerconfig');
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -18,17 +19,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, '/tmp/my-uploads')
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    cb(null, file.fieldname + '-' + uniqueSuffix)
-  }
-});
 
-const upload = multer({ storage: storage })
 
 app.get("/",(req,res)=> {
   res.render("index")
@@ -37,6 +28,11 @@ app.get("/",(req,res)=> {
 
 app.get("/test" , (req,res) => {
   res.render("test");
+});
+
+app.post("/upload",upload.single("image"),(req,res) => {
+  console.log(req.file);
+  res.redirect("/test");
 })
 
 app.get("/signup",(req,res)=> {
