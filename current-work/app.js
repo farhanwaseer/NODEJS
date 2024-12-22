@@ -4,7 +4,6 @@ const path = require("path");
 const userModel = require('./models/user');
 const postModel = require("./models/post");
 const crypto = require("crypto");
-const multerconfig = require("./config/multerconfig");
 
 const PORT = 3000;
 const jwt = require("jsonwebtoken");
@@ -26,13 +25,16 @@ app.get("/",(req,res)=> {
 }
 );
 
-app.get("/test" , (req,res) => {
-  res.render("test");
+app.get("/profile/upload" , isLoggedIn, (req,res) => {
+  res.render("profileupload");
 });
 
-app.post("/upload",upload.single("image"),(req,res) => {
+app.post("/upload", isLoggedIn,upload.single("image"), async (req,res) => {
   console.log(req.file);
-  res.redirect("/test");
+  let user = await userModel.findOne({email: req.user.email});
+  user.profilepic = req.file.filename;
+  await user.save()
+  res.redirect("/profile");
 })
 
 app.get("/signup",(req,res)=> {
