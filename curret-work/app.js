@@ -5,6 +5,7 @@ const PORT = 5000;
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const userModel = require("./models/userModel");
+const productModel = require("./models/product");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
