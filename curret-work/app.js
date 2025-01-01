@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 
 const cookieParser = require("cookie-parser");
+const dbgr = require("debug")("development:server");
 const path = require("path");
 const db = require("./config/mongoose-connect")
 const userModel = require("./models/userModel");
@@ -24,5 +25,5 @@ app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 
 app.listen(PORT || 3000, () => {
-    console.log(`Server working on ${PORT}`);
+    dbgr(`Server working on Port:${PORT}`);
 });
