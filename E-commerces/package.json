@@ -1,0 +1,20 @@
+{
+  "name": "e-commerces",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Farhan Ahmed",
+  "license": "ISC",
+  "type": "module",
+  "description": "E-commerce App",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
