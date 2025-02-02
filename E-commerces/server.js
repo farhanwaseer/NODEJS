@@ -5,6 +5,7 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js"
 
+
 // configure env
 dotenv.config();
 
@@ -23,6 +24,10 @@ app.use("/api/v1/auth", authRoutes)
 // rest api
 app.get("/", (req, res) => {
   res.send("<h1>WelCome to App</h1>");
+});
+
+app.get("/api",(req, res) => {
+  res.send("<h1>WelCome to App Api</h1>");
 });
 
 // PORT
