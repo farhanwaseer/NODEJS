@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink} from "react-router";
-import { MdOutlineShoppingCart } from "react-icons/md";
+import { NavLink,Link} from "react-router";
+import { FcEngineering } from "react-icons/fc";
 
 
 const Header = () => {
@@ -20,10 +20,10 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <MdOutlineShoppingCart className=""/>
-            <NavLink className="navbar-brand " to="/#">
+          <Link className="navbar-brand text-white " to="/#">
+          <FcEngineering />
               My Shop
-            </NavLink>
+            </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink className="nav-link text-white " to="/home">
