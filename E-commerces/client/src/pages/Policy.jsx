@@ -3,7 +3,7 @@ import Layout from "../components/layout/Layout";
 
 const Policy = () => {
   return (
-    <Layout>
+    <Layout title={"Policy"}>
  <div style={{maxWidth: 800, margin: '0 auto', backgroundColor: 'white', padding: 30, borderRadius: 8, boxShadow: '0 2px 4px rgba(0,0,0,0.1)'}}>
   <h1 style={{color: '#2c3e50', textAlign: 'center', borderBottom: '2px solid #eee', paddingBottom: 10}}>Privacy Policy</h1>
   

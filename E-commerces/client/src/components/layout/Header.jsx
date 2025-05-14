@@ -26,7 +26,7 @@ const Header = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link text-white " to="/home">
+                <NavLink className="nav-link text-white " to="/">
                   Home
                 </NavLink>
               </li>

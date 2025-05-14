@@ -3,9 +3,9 @@ import Layout from "../components/layout/Layout";
 
 const HomePage = () => {
   return (
-    <Layout>
+    <Layout title={"E-commerce"}>
       <div>
-        <h1>HomePage</h1>
+        <h1>Home Page</h1>
       </div>
     </Layout>
   );

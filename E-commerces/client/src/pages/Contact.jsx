@@ -3,7 +3,7 @@ import Layout from "../components/layout/Layout";
 
 const Contact = () => {
   return (
-    <Layout>
+    <Layout title={"Contact"}>
 <div className="new_home_web">
   <div className="responsive-container-block big-container">
     <img className="imgBG" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw65.png" />

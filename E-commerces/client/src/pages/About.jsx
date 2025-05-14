@@ -3,7 +3,7 @@ import Layout from "../components/layout/Layout";
 
 const About = () => {
   return (
-    <Layout>
+    <Layout title={"About-Us"}>
      <div className="responsive-container-block bigContainer">
   <div className="responsive-container-block Container">
     <div className="imgContainer">
@@ -78,8 +78,6 @@ const About = () => {
     <img className="redDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/cw3.svg" />
   </div>
 </div>
-
-
     </Layout>
   );
 };

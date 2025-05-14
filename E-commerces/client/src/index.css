@@ -9,7 +9,7 @@
 /* navbar css */
 
 .navbar {
-  background: linear-gradient(to right, #ff5858, #f857a6);
+  background: linear-gradient(to right, #ff5858e5, #f857a6);
   font-family: "Poppins", serif;
   font-size: 17px;
   line-height: 26px;
@@ -68,7 +68,20 @@
   margin-top: 10px;
 }
 
+/* ======== Register page  ========= */
+.register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  flex-direction: column;
+}
 
+.register form {
+  border: 2px solid #93939356;
+  border-radius: 30px ;
+  padding: 50px;
+}
 
 /* =======footer============= */
 .footer {
