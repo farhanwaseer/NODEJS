@@ -1,17 +1,44 @@
 import { useState } from "react";
 import Layout from "../../components/layout/layout";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+
 
 const Register = () => {
   const [name, setName] = useState("");
-  const [eamil, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  //   form hendler
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+     const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await axios.post(
+        `${apiUrl}/api/v1/auth/register`,
+        { name, email, password, phone, address }
+      );
+      if (res.data.success) {
+        toast.success(res.data.message);
+        navigate("/login")
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
     <Layout title="Register">
       <div className="register ">
         <h1>Register</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <input
               required
@@ -27,7 +54,7 @@ const Register = () => {
             <input
               type="text"
               required
-              value={eamil}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder=" Email"
               className="form-control"
