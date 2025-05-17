@@ -38,11 +38,21 @@
 }
 
 .nav-link {
-  font-weight: 300 !important;
+  font-weight: 400 !important;
+  /* color: #db1212c9; */
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #cc5510;
 }
 
+.nav-link:hover {
+  color: #ffffff;
+  text-shadow: 0px 0px 0px #cc5510;
+  /* margin: 1px; */
+}
+
+
 .active {
-  border-bottom: 1px solid rgb(189, 77, 49);
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 /* Page Not Found */
@@ -72,7 +82,8 @@
 }
 
 .pnf-btn:hover {
- padding: 8px;
+  padding: 8px;
+  background-color: #0000004f;
 }
 
 /* Footer */
