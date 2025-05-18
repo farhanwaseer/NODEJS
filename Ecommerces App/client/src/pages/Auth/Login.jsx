@@ -3,10 +3,13 @@ import Layout from "../../components/layout/layout";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useAuth } from "../../context/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
+
   const navigate = useNavigate();
 
   //   form hendler
@@ -18,8 +21,17 @@ const Login = () => {
         email,
         password,
       });
-      if (res.data.success) {
+      if (res && res.data.success) {
         toast.success(res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+
+        // localstorage
+        localStorage.setItem("auth", JSON.stringify(res.data));
+
         navigate("/");
       } else {
         toast.error(res.data.message);
@@ -33,36 +45,35 @@ const Login = () => {
   return (
     <Layout title="Login">
       <div className="login">
-  <h1 >Login</h1>
-  <form onSubmit={handleSubmit}>
-    <div className="mb-3">
-      <input
-        type="text"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        className="form-control"
-        id="exampleInputEmail"
-      />
-    </div>
-    <div className="mb-3">
-      <input
-        type="password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        className="form-control"
-        id="exampleInputPassword1"
-      />
-    </div>
-    <button type="submit" className="submit-btn">
-      Submit
-    </button>
-  </form>
-</div>
-
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <input
+              type="text"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="form-control"
+              id="exampleInputEmail"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
+        </form>
+      </div>
     </Layout>
   );
 };
