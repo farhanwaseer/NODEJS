@@ -1,4 +1,4 @@
-RESUME from    2:3:00;
+RESUME from    2:45:00;
 
 
 Total 11:00:00

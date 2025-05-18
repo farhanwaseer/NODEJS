@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Layout from "../../components/layout/layout";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import toast  from "react-hot-toast";
 import axios from "axios";
 
 
@@ -94,7 +94,7 @@ const Register = () => {
               id="exampleInputPassword1"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="submit-btn">
             Submit
           </button>
         </form>
