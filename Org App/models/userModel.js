@@ -30,6 +30,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    nicNumber: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     district: {
       type: String,
       required: true,
