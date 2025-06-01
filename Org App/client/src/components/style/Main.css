@@ -1,0 +1,12 @@
+.campusImg {
+ width: 400px;
+ height: 100vh;
+ margin-left: 180px;
+ 
+}
+
+.main-btn {
+    color: rgb(245, 245, 245) !important;
+    background: #8b3232;
+    border: none;
+}

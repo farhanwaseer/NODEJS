@@ -1,0 +1,14 @@
+.main-section {
+  background: linear-gradient(90deg, #3366ff, #c633ff);
+  min-height: 90vh;
+  color: white;
+}
+
+
+.avatars img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
