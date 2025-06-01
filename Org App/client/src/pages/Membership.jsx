@@ -22,22 +22,23 @@ const Membership = () => {
 
           {/* Text on the right */}
           <div className="col-md-6">
-            <h1 className="display-5 fw-bold">
+            <h1 className="display-5 mb-5 fw-bold">
               Easy Steps to Join Campus Connect
             </h1>
-            <p className="lead mb-3">
-              <strong>01.</strong>
-              <br />
+            <p className="lead mb-4">
+              <strong className="fw-bold">01. </strong>
               Explore our website to learn about our mission and activities.
             </p>
-            <p className="lead mb-3">
-              <strong>02.</strong>
-              <br />
+            <hr />
+            <p className="lead mb-4">
+              <strong className="fw-bold">02. </strong>
+              
               Attend one of our upcoming events to meet current members.
             </p>
+            <hr />
             <p className="lead mb-3">
-              <strong>03.</strong>
-              <br />
+              <strong className="fw-bold">03. </strong>
+              
               Complete the online application form and submit your membership
               fee.
             </p>

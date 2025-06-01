@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Griffy&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:wght@400;700&display=swap");
+
+/* navbar css */
+
+
+.nav-title {
+  font-family: "Griffy";
+  font-weight: 700;
+  letter-spacing: 6px;
+  font-size: 30px;
+  color: rgb(207, 8, 8) !important;
+  text-shadow: 2px 2px 3px black;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: rgb(163, 2, 2) !important;
+  text-shadow: 1px 2px 2px black;
+}
+
+.active {
+  color: rgb(163, 2, 2) !important;
+  text-shadow: 1px 2px 2px black;
+  border-bottom: 2px solid rgb(185, 184, 181);
+}

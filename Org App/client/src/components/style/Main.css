@@ -1,12 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Griffy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:wght@400;700&display=swap");
 .campusImg {
- width: 400px;
- height: 100vh;
- margin-left: 180px;
- 
+  width: 400px;
+  height: 100vh;
+  margin-left: 180px;
+}
+
+.CampusInfo {
+    font-family: "Montserrat";
+  margin-left: 350px;
+  width: 60%;
+}
+.quote-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.CampusInfo h6 {
+  color: #1a56d6 !important;
+  font-weight: 600;
+  text-shadow: 0.5px 1px 2px #5d626d;
+}
+
+.text-3xl {
+  /* font-size: 1.875rem; */
+  line-height: 3.25rem;
+  font-family: "Montserrat";
+  font-weight:  500;
+  font-size: 40px;
+}
+
+.campusInfo-p {
+   font-family: "Montserrat";
+   font-weight: 500 !important; 
+   font-size: larger;
+     
 }
 
 .main-btn {
-    color: rgb(245, 245, 245) !important;
-    background: #8b3232;
-    border: none;
+  color: rgb(245, 245, 245) !important;
+  background: #8b3232;
+  border: none;
 }
