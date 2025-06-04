@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ScrollToTop from "./components/Layout/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import Contact from "./pages/Contact";
 import EventsAndActivties from "./pages/EventsAndActivties";
@@ -12,6 +12,7 @@ import PageNotFound from "./pages/PageNotFound";
 function App() {
   return (
     <>
+     <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
