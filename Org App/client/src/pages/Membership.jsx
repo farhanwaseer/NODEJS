@@ -4,7 +4,7 @@ import campus2 from "../assets/campus2.jpg";
 const Membership = () => {
   return (
     <Layout>
-      <h1>Membership</h1>
+      {/* <h1>Membership</h1> */}
       <section
         className="container-fluid text-white py-5"
         style={{ background: "linear-gradient(to right, #c2e59c, #64b3f4)" }}
