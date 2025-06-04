@@ -1,6 +1,5 @@
 import { NavLink } from "react-router";
 
-
 export default function Header() {
   console.log("Rendering Header section");
   return (
@@ -10,14 +9,20 @@ export default function Header() {
         <NavLink to="/" className="text-decoration-none nav-link text-dark">
           Home
         </NavLink>
-        <NavLink to="/events" className="text-decoration-none nav-link text-dark">
+        <NavLink
+          to="/events"
+          className="text-decoration-none nav-link text-dark"
+        >
           Events and Activities
         </NavLink>
-        <NavLink to="/membership" className="text-decoration-none nav-link text-dark">
+        <NavLink
+          to="/membership"
+          className="text-decoration-none nav-link text-dark"
+        >
           Membership
         </NavLink>
       </nav>
-      <button className="btn btn-primary">Contact us →</button>
+      <button className="btn btn-primary">Support us</button>
     </header>
   );
 }
