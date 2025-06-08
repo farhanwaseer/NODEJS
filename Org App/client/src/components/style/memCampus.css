@@ -1,0 +1,59 @@
+.gradient-bg {
+  /* background: linear-gradient(to right, #1f5eff, #c400ff); */
+  background: linear-gradient(to right, #8e0e00, #1f1c18);
+  border-radius: 20px;
+  position: relative;
+}
+
+#campuslife {
+    margin: 90px 0px 70px 0px;
+    /* margin: 90px 70px 70px 70px; */
+}
+
+.campus-image {
+  position: absolute;
+  top: 49%;
+  right: 0;
+  transform: translate(-25%, -50%);
+  max-width: 70%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.avatars img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+
+/* Avatars */
+
+.avatar-stack {
+  display: flex;
+}
+
+.avatar-stack img {
+  margin-left: -15px;
+  z-index: 1;
+  position: relative;
+  border: 0.5px solid rgba(207, 205, 205, 0.795);
+}
+
+.avatar-stack img:first-child {
+  margin-left: 0;
+  z-index: 1;
+}
+
+.avatar-stack img:nth-child(2) {
+  z-index: 2;
+}
+
+.avatar-stack img:nth-child(3) {
+  z-index: 3;
+}
+
+.avatar-stack img:nth-child(4) {
+  z-index: 4;
+}

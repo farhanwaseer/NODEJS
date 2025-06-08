@@ -25,6 +25,36 @@
   text-shadow: 1px 1px 1px black;
   /* border-bottom: 2px solid rgb(185, 184, 181); */
 }
+
+/* Ensure hamburger icon shows */
+.navbar-toggler {
+  background-color: transparent;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  width: 25px;
+  height: 2px;
+  background-color: black;
+  display: block;
+  position: relative;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  width: 25px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+}
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
 /* Footer css  */
 .footer-link a {
   font-weight: 500;
@@ -42,7 +72,26 @@
   text-shadow: 1px 1px 1px black;
 }
 
+.footer-link a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link a:hover,
+.footer-link a.active {
+  color: rgb(163, 2, 2) !important;
+  text-shadow: 1px 1px 1px black;
+}
+
+/* Optional: make icons look cleaner on hover */
+footer a img:hover {
+  filter: brightness(0.8);
+}
+
+
 .dev-farhan {
   /* /* color: red !important; */
-  text-decoration: none; 
+  text-decoration: none;
 }
