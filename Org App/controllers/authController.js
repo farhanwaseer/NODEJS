@@ -18,26 +18,26 @@ export const registerController = async (req, res) => {
     } = req.body;
 
     // validations
-    if (!firstName) return res.send({ error: "firstName is required" });
-    if (!lastName) return res.send({ error: "lastName is required" });
-    if (!phone) return res.send({ error: "phone is required" });
-    if (!department) return res.send({ error: "department is required" });
-    if (!batch) return res.send({ error: "batch is required" });
+    if (!firstName) return res.send({ message: "firstName is required" });
+    if (!lastName) return res.send({ message: "lastName is required" });
+    if (!phone) return res.send({ message: "phone is required" });
+    if (!department) return res.send({ message: "department is required" });
+    if (!batch) return res.send({ message: "batch is required" });
     if (!registrationNumber) {
-      return res.send({ error: "registrationNumber is required" });
+      return res.send({ message: "registrationNumber is required" });
     }
-    if (!nicNumber) return res.send({ error: "nicNumber is required" });
-    if (!district) return res.send({ error: "district is required" });
-    if (!email) return res.send({ error: "email is required" });
+    if (!nicNumber) return res.send({ message: "nicNumber is required" });
+    if (!district) return res.send({ message: "district is required" });
+    if (!email) return res.send({ message: "email is required" });
     if (!password) {
-      return res.send({ error: "password is required" });
+      return res.send({ message: "password is required" });
     }
 
     // check user
     const existingUser = await userModel.findOne({ email });
     //  existing user
     if (existingUser)
-      return res.status(409).send({
+      return res.status(200).send({
         success: false,
         message: "User already registered. Please login.",
       });
@@ -106,7 +106,8 @@ export const loginController = async (req, res) => {
       success: true,
       message: "login successfully",
       user: {
-        name: user.firstName,
+        _id: user._id,
+        name: user.firstName + " " + user.lastName,
         email: user.email,
         phone: user.phone,
         department: user.department,

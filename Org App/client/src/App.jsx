@@ -8,13 +8,17 @@ import EventsAndActivties from "./pages/EventsAndActivties";
 import Membership from "./pages/Membership";
 import Policy from "./pages/Policy";
 import PageNotFound from "./pages/PageNotFound";
+import Register from "./pages/Auth/Register";
+import Login from "./pages/Auth/Login";
 
 function App() {
   return (
     <>
-     <ScrollToTop />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<EventsAndActivties />} />
         <Route path="/membership" element={<Membership />} />

@@ -19,7 +19,7 @@ import {
 
 const EventsAndActivties = () => {
   return (
-    <Layout>
+    <Layout title={'Events'}>
       
       {/* <h1>EventsAndActivties</h1> */}
       <UpcomingEvents />

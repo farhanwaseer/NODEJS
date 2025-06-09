@@ -1,0 +1,14 @@
+.form-container form input {
+ border: none;
+ border-bottom: 1px solid black;
+ border-radius: 0%;
+ width: 250px;
+}
+
+.form-container form {
+    margin-left: 90px;
+}
+.form-container h2 {
+    margin-left: 90px;
+}
+

@@ -18,7 +18,7 @@ import "aos/dist/aos.css";
 
 const Membership = () => {
   return (
-    <Layout>
+    <Layout title={'Membership'}>
       <CampusLife />
       <CampusInfo />
 
