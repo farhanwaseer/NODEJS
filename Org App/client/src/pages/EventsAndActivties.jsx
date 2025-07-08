@@ -1,6 +1,9 @@
 import { useState,useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { motion } from "framer-motion";
+import slide1 from "../assets/slide1.jpg" 
+import slide4 from "../assets/slide4.jpg" 
 
 import Layout from "../components/Layout/Layout";
 // Animation
@@ -66,23 +69,23 @@ const events = [
 
 const UpcomingEvents = () => {
   return (
-    <div className="container  my-5  ">
+    <div className="container my-5">
       <h4 className="fw-bold">Upcoming Events</h4>
       <p className="text-muted">
         Stay updated on the latest happenings and plan your participation.
       </p>
 
-      <div className="table-responsive  verflow-hidden rounded-2 ">
-        <table class="table   table-hover  align-middle">
-          <thead className="table-light border  ">
+      <div className="table-responsive overflow-hidden rounded-2">
+        <table className="table table-hover align-middle">
+          <thead className="table-light border">
             <tr>
-              <th>Event</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Location</th>
+              <th scope="col">Event</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Location</th>
             </tr>
           </thead>
-          <tbody className="border ">
+          <tbody className="border">
             {events.map((event, index) => (
               <tr key={index}>
                 <td>
@@ -90,12 +93,14 @@ const UpcomingEvents = () => {
                     <img
                       src={event.image}
                       alt={event.title}
-                      className="rounded-circle me-3"
+                      className="rounded-circle me-3 flex-shrink-0"
                       width="40"
                       height="40"
                     />
-                    <div>
-                      <div className="fw-semibold" style={{fontFamily:"M"}}>{event.title}</div>
+                    <div className="text-truncate" style={{ maxWidth: "200px" }}>
+                      <div className="fw-semibold" style={{ fontFamily: "M" }}>
+                        {event.title}
+                      </div>
                       <div
                         className="text-muted"
                         style={{ fontSize: "0.85em" }}
@@ -107,7 +112,9 @@ const UpcomingEvents = () => {
                 </td>
                 <td>{event.date.split(" - ")[0]}</td>
                 <td>{event.time.split(" - ")[1]}</td>
-                <td>{event.location}</td>
+                <td className="text-truncate" style={{ maxWidth: "150px" }}>
+                  {event.location}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -130,28 +137,30 @@ const pastEvents = [
   {
     title: "Welcome Back Party",
     tag: "Party",
-    img: "https://scontent.fkhi16-2.fna.fbcdn.net/v/t39.30808-6/495133226_1108722731294280_9067558652381390255_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=H8nNHrW8HEAQ7kNvwFNcuPI&_nc_oc=AdnvhX6JwKs60jG6H-lJqJGV0zUSkaFKGuMUDVlCvG_TpAgfXKog9-PsQeaDUB-HvYI&_nc_zt=23&_nc_ht=scontent.fkhi16-2.fna&_nc_gid=eAKpa5WzdRQjhj89eltDGw&oh=00_AfP5db03bIu4shGNKShVblQQZ40ldDNTwE6jUxMPW4ReLA&oe=6848D60B",
+    img: "https://wpassets.graana.com/blog/wp-content/uploads/2023/01/bmw-i8-in-blue-colours-with-opened-doors.jpg",
     category: "Social Events",
   },
   {
     title: "Campus Dance Night",
     tag: "Dance",
-    img: "https://scontent.fkhi16-1.fna.fbcdn.net/v/t39.30808-6/488888262_1086310273535526_3051740894847359549_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6K1x6UyEP6oQ7kNvwHJygm7&_nc_oc=Admywbjxcy0SG7ZEJVqbRenvTbm7U-GZepBo7uFbPVNGTEM0QT_Dzc4j8KJCS0UG9Vs&_nc_zt=23&_nc_ht=scontent.fkhi16-1.fna&_nc_gid=3qcq6axGZhbFs269s_RsZg&oh=00_AfMYt0JpbC8F7buwhHuYRSq-dOctccfLoS-uAsTrqaWWDA&oe=6848C6CC",
+    img: "https://wpassets.graana.com/blog/wp-content/uploads/2023/01/bmw-i8-in-blue-colours-with-opened-doors.jpg",
     category: "Social Events",
   },
   {
     title: "Game Night",
     tag: "Games",
-    img: "https://scontent.fkhi16-1.fna.fbcdn.net/v/t39.30808-6/488888262_1086310273535526_3051740894847359549_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6K1x6UyEP6oQ7kNvwHJygm7&_nc_oc=Admywbjxcy0SG7ZEJVqbRenvTbm7U-GZepBo7uFbPVNGTEM0QT_Dzc4j8KJCS0UG9Vs&_nc_zt=23&_nc_ht=scontent.fkhi16-1.fna&_nc_gid=3qcq6axGZhbFs269s_RsZg&oh=00_AfMYt0JpbC8F7buwhHuYRSq-dOctccfLoS-uAsTrqaWWDA&oe=6848C6CC",
+    img: "https://wpassets.graana.com/blog/wp-content/uploads/2023/01/bmw-i8-in-blue-colours-with-opened-doors.jpg",
     category: "Social Events",
   },
   {
     title: "Weekend Trip",
     tag: "Trip",
-    img: "https://scontent.fkhi16-1.fna.fbcdn.net/v/t39.30808-6/488888262_1086310273535526_3051740894847359549_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6K1x6UyEP6oQ7kNvwHJygm7&_nc_oc=Admywbjxcy0SG7ZEJVqbRenvTbm7U-GZepBo7uFbPVNGTEM0QT_Dzc4j8KJCS0UG9Vs&_nc_zt=23&_nc_ht=scontent.fkhi16-1.fna&_nc_gid=3qcq6axGZhbFs269s_RsZg&oh=00_AfMYt0JpbC8F7buwhHuYRSq-dOctccfLoS-uAsTrqaWWDA&oe=6848C6CC",
+    img: "https://wpassets.graana.com/blog/wp-content/uploads/2023/01/bmw-i8-in-blue-colours-with-opened-doors.jpg",
     category: "Social Events",
   },
 ];
+
+// EventGallery
 
 const EventGallery = () => {
   const [activeCategory, setActiveCategory] = useState("Social Events");
@@ -298,37 +307,40 @@ const ParticipationSection = () => {
 
 const CampusLocation = () => {
   return (
-    <div className="container py-5 mt-5 m-5">
+    <div className="container py-5 mt-5">
       <div className="row align-items-center">
         {/* Text Section */}
-        <div className="col-md-6 mb-4 mb-md-0">
-          <h2 >Find Us on Campus</h2>
+        <div className="col-12 col-md-6 mb-4 mb-md-0">
+          <h2 className="fw-bold">Find Us on Campus</h2>
           <p className="text-muted">
             Visit our central hub located in the Student Union and discover where activities and events take place.
           </p>
           <p className="text-primary">
             <i className="bi bi-geo-alt-fill me-2"></i>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-decoration-none text-primary">
+            <a
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-decoration-none text-primary"
+            >
               International Islamic University Islamabad
             </a>
           </p>
         </div>
 
         {/* Map Section */}
-        <div className="col-md-6">
-          <div className="rounded overflow-hidden ms-4 shadow">
+        <div className="col-12 col-md-6">
+          <div className="rounded overflow-hidden shadow">
             <iframe
               title="Campus Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320
-              .956469243579!2d73.02341920608221!3d33.6582897994902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13
-              .1!3m3!1m2!1s0x38df95906a03cfff%3A0x2b2f1c1c99b676ce!2sInternational%20Islamic%20University%20Islamabad%20(IIUI)
-              !5e0!3m2!1sen!2s!4v1749399561845!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.956469243579!2d73.02341920608221!3d33.6582897994902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95906a03cfff%3A0x2b2f1c1c99b676ce!2sInternational%20Islamic%20University%20Islamabad%20(IIUI)!5e0!3m2!1sen!2s!4v1749399561845!5m2!1sen!2s"
               width="100%"
               height="340"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              className="w-100"
             ></iframe>
           </div>
         </div>
@@ -336,3 +348,4 @@ const CampusLocation = () => {
     </div>
   );
 };
+

@@ -16,8 +16,13 @@ router.post("/register", registerController);
 router.post("/login", loginController);
 
 // Test protected  route
-router.get("/test", requireSignIn,isAdmin,(req, res) => {
+router.get("/test", requireSignIn, isAdmin, (req, res) => {
   res.send("<h1> hello from protected route</h1>");
+});
+
+// protected route
+router.get("/user-auth", requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true });
 });
 
 export default router;

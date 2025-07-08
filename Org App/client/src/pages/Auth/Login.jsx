@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import desk3 from "../../assets/desk3Img.png";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import toast from "react-hot-toast";
 import "../../components/style/Auth.css";
+import msaLogo from "../../assets/msaLogo.png"
 // LoginPage.js
 import { useState } from "react";
 import { useAuth } from "../../context/auth";
@@ -17,6 +18,7 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   //   form hendler
   const handleSubmit = async (e) => {
@@ -38,7 +40,8 @@ const Login = () => {
 
         localStorage.setItem("auth", JSON.stringify(res.data));
 
-        navigate("/");
+        navigate(location.state || "/");
+
       } else {
         toast.error(res.data.message);
       }
@@ -49,8 +52,9 @@ const Login = () => {
   };
 
   return (
-    <Layout title={"Login"}>
-      <div
+    // <Layout title={"Login"}>
+    // </Layout>
+    <div
         className="container  d-flex justify-content-center align-items-center vh-100"
         style={{
           background:
@@ -65,7 +69,7 @@ const Login = () => {
         >
           <div className="col-md-6 d-flex align-items-center justify-content-center">
             <img
-              src={desk3} // Replace with your image URL or local import
+              src={msaLogo} // Replace with your image URL or local import
               alt="Sign in Illustration"
               className="img-fluid"
             />
@@ -151,7 +155,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </Layout>
   );
 };
 

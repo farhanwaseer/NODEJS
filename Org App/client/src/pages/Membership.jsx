@@ -18,8 +18,8 @@ import "aos/dist/aos.css";
 
 const Membership = () => {
   return (
-    <Layout title={'Membership'}>
-      <CampusLife />
+    <Layout title={"Membership"}>
+      {/* <CampusLife /> */}
       <CampusInfo />
 
       {/* <h1>Membership</h1> */}
@@ -77,17 +77,18 @@ export const CampusLife = () => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div id="campuslife"  data-aos="zoom-in" className="p-1">
+    <div id="campuslife" data-aos="zoom-in" className="p-1">
       <div className="container-fluid p-5  mb-5  gradient-bg text-white ">
         <div className="row p-4 align-items-center">
           {/* Text Section */}
-          <div className="col-lg-6 " >
+          <div className="col-lg-6 ">
             <h2 className="display-7 fw-bold text-center text-md-start">
               Mehran Student Association:
               <br />
               Your Campus Life Starts Here!
             </h2>
-            <p className="text-center text-md-start">
+
+            <p className="text-center d-none d-lg-flex  text-lg-start mt-2">
               Discover student organizations, events, and opportunities at
               Campus Connect. Join our community and make the most of your
               university experience!
@@ -101,7 +102,6 @@ export const CampusLife = () => {
 
               <div className="d-flex align-items-center">
                 <div className="avatar-stack">
-                  
                   <img
                     src={avatar}
                     className="rounded-circle"
@@ -134,7 +134,8 @@ export const CampusLife = () => {
                 <span className="ms-2 text-white">+5K</span>
               </div>
             </div>
-            <div className="mt-3 ">
+
+            <div className="mt-3 text-center text-lg-start">
               <span className="ms-4  text-white">
                 <img src={icon1} width="25" height="25" alt="" />
               </span>
@@ -148,7 +149,7 @@ export const CampusLife = () => {
           </div>
 
           {/* Image Section */}
-          <div  >
+          <div className="col-lg-6 d-none d-lg-flex justify-content-center">
             <img
               src={campus} // replace with actual path
               alt="Campus"

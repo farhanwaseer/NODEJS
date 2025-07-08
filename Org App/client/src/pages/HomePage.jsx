@@ -16,9 +16,9 @@ export default function HomePage() {
 
   return (
     <Layout className="min-vh-100" title={'Home'}>
-      <CampusLife />
       {/* <Main /> */}
-      <pre>{JSON.stringify(auth,null,4)}</pre>
+      <CampusLife />
+      {/* <pre>{JSON.stringify(auth,null,4)}</pre> */}
       <CampusInfo />
       <ImageBanner />
       <CampusEventsSlideShow />

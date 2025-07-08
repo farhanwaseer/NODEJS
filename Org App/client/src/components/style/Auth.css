@@ -1,4 +1,4 @@
-.form-container form input {
+/* .form-container form input {
  border: none;
  border-bottom: 1px solid black;
  border-radius: 0%;
@@ -11,4 +11,24 @@
 .form-container h2 {
     margin-left: 90px;
 }
+ */
 
+
+ .form-container form input {
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0%;
+   width: 100%; /* Full width input */
+}
+
+.form-container form,
+.form-container h2 {
+  margin-left: 0; /* Reset margin */
+}
+
+@media (min-width: 768px) {
+  .form-container form,
+  .form-container h2 {
+    padding-left: 20px; /* Optional padding on medium+ screens */
+  }
+}

@@ -10,6 +10,8 @@ import Policy from "./pages/Policy";
 import PageNotFound from "./pages/PageNotFound";
 import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
+import DashBoard from "./pages/user/DashBoard";
+import PrivateRoute from "./components/Routes/privateRoute";
 
 function App() {
   return (
@@ -17,8 +19,11 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<PrivateRoute/>}>
+          <Route path="" element={<DashBoard />} />
+        </Route>
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<EventsAndActivties />} />
         <Route path="/membership" element={<Membership />} />

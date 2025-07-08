@@ -29,7 +29,6 @@ import "aos/dist/aos.css";
 
 // Main Section
 export default function Main() {
-  
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -104,12 +103,11 @@ export default function Main() {
         </div>
       </main>
     </>
+   
   );
 }
 
 // Campus Information Section
-
-
 
 export const CampusInfo = () => {
   return (
@@ -197,8 +195,6 @@ export const CampusInfo = () => {
 
 // Member Section
 
-
-
 export const MembSection = () => {
   useEffect(() => {
     AOS.init({ duration: 1500 });
@@ -246,7 +242,6 @@ export const MembSection = () => {
 
 // Image Banner
 
-
 export const ImageBanner = () => {
   return (
     <Container className="text-center my-5">
@@ -268,15 +263,18 @@ export const ImageBanner = () => {
 
 // slideShow
 
-
 export const CampusEventsSlideShow = ({ disableAnimation = false }) => {
   useEffect(() => {
     AOS.init({ duration: 2500 });
   }, []);
 
   return (
-    <div className="campus-carousel-wrapper " {...(!disableAnimation && {
-        'data-aos': 'fade-up'})}>
+    <div
+      className="campus-carousel-wrapper "
+      {...(!disableAnimation && {
+        "data-aos": "fade-up",
+      })}
+    >
       <Carousel
         fade
         interval={3000}
@@ -356,7 +354,7 @@ export const ConnectSection = () => {
           </Row>
         </Container>
       </section>
-      
+
       {/* Section 1: Image + Info */}
       <Container fluid className="p-0">
         <Row className="g-0 align-items-center">
@@ -406,7 +404,6 @@ export const ConnectSection = () => {
           </Col>
         </Row>
       </Container>
-
     </>
   );
 };
