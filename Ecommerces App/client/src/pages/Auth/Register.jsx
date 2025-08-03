@@ -10,6 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [answer, setAnswer] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const Register = () => {
      const apiUrl = import.meta.env.VITE_API_URL;
       const res = await axios.post(
         `${apiUrl}/api/v1/auth/register`,
-        { name, email, password, phone, address }
+        { name, email, password, phone, address,answer }
       );
       if (res.data.success) {
         toast.success(res.data.message);
@@ -81,6 +82,17 @@ const Register = () => {
               placeholder=" Address"
               className="form-control"
               id="exampleInputAddress"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              required
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              placeholder="Favorite Game"
+              className="form-control"
+              id="exampleInputAnswer"
             />
           </div>
           <div className="mb-3">
