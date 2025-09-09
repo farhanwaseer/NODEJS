@@ -44,11 +44,32 @@ const Hero = () => {
               type="date"
               name=""
               id="pickup-date"
-              min={new Date().toISOString().split('T')[0]} required
+              min={new Date().toISOString().split("T")[0]}
+              required
             />
-            
+          </div>
+          <div className="flex flex-col items-start gap-2">
+            <label htmlFor="return-date">Return Date</label>
+            <input
+              className="text-sm text-gray-500"
+              type="date"
+              name=""
+              id="return-date"
+              required
+            />
           </div>
         </div>
+        <button
+          className="flex items-center justify-center gap-1 px-9 py-3 
+          max-sm:mt-4 bg-primary hover:bg-primary-dull text-white rounded-full cursor-pointer"
+        >
+          <img
+            src={assets.search_icon}
+            className="brightness-300"
+            alt="search"
+          />
+          Search
+        </button>
       </form>
       {/* Car Image */}
       <img src={assets.main_car} alt="car" className="max-h-74" />
