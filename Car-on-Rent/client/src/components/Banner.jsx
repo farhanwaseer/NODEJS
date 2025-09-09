@@ -14,7 +14,7 @@ const Banner = () => {
           Monetize your vehicle effortlessly by listing it on CarRental.
         </p>
         <p className="max-w-130">
-          We take care of insurance, driver verification and secure payments --
+          We take care of insurance, driver verification and secure payments -
           soo you can earn passive income, stress-free.
         </p>
         <button
