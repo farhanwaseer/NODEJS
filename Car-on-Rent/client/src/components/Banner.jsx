@@ -18,7 +18,7 @@ const Banner = () => {
           soo you can earn passive income, stress-free.
         </p>
         <button
-          className="px-6 py-2 bg-white hover:bg-slate-100 transition-all text-primary
+          className="px-6 py-2 bg-white text-gray-600 font-semibold hover:bg-slate-100 transition-all 
          rounded-lg text-sm mt-4 cursor-pointer  "
         >
           List your car
