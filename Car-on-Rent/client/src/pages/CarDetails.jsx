@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { assets, dummyCarData } from "../assets/assets";
+import Loader from "../components/Loader";
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -86,7 +87,8 @@ const CarDetails = () => {
       </div>
     </div>
   ) : (
-    <p>Loading...</p>
+    <Loader />
+    // <p>Loading...</p>
   );
 };
 
