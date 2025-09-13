@@ -35,7 +35,7 @@ const CarCard = ({ car }) => {
         text-white px-3 py-2 rounded-lg"
         >
           <span className="font-semibold">
-            {currency}
+            {currency} 
             {car.pricePerDay}
           </span>
           <span className="text-sm text-white/80 "> / day</span>
