@@ -21,7 +21,7 @@ const MyBookings = () => {
         subTitle={"View and manage your all car  bookings"}
         align={"left"}
       />
-      <div>````
+      <div>
         {bookings.map((booking, index) => (
           <div
             key={booking._id}
@@ -40,8 +40,8 @@ const MyBookings = () => {
               <p className="text-lg font-medium mt-2">
                 {booking.car.brand} {booking.car.model}
               </p>
-              <p className="text-gray-500">
-                {booking.car.year} ● {booking.car.category} ●
+              <p className="text-gray-500 ">
+                {booking.car.year} ● {booking.car.category} ●{" "}
                 {booking.car.location}
               </p>
             </div>
@@ -94,8 +94,11 @@ const MyBookings = () => {
             <div className="md:col-span-1 flex flex-col justify-between gap-6  ">
               <div className="text-sm text-gray-500 text-right">
                 <p>Total price</p>
-                <h1 className="text-2xl font-samibold text-primary">{currency}{booking.price}</h1>
-                <p>Booked on {booking.createdAt.split('T')[0]} </p>
+                <h1 className="text-2xl font-samibold text-primary">
+                  {currency}
+                  {booking.price}
+                </h1>
+                <p>Booked on {booking.createdAt.split("T")[0]} </p>
               </div>
             </div>
           </div>
