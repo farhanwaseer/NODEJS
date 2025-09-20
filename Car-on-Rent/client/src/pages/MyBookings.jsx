@@ -21,7 +21,7 @@ const MyBookings = () => {
         subTitle={"View and manage your all car  bookings"}
         align={"left"}
       />
-      <div>
+      <div>````
         {bookings.map((booking, index) => (
           <div
             key={booking._id}
