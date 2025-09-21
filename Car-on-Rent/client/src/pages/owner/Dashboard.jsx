@@ -58,6 +58,50 @@ const DashBoard = () => {
           </div>
         ))}
       </div>
+
+      <div className="flex flex-wrap items-start gap-6 mb-8 w-full ">
+        {/* recent bookings */}
+        <div className="p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full">
+          <h1 className="text-lg font-medium">Recent Bookings</h1>
+          <p className="text-gray-500">Leatest </p>
+          {data.recentBookings.map((booking, index) => (
+            <div
+              className="mt-4 flex items-center justify-between "
+              key={index}
+            >
+              <div className="flex items-center gap-2">
+                <div className="hidden md:flex items-center justify-center h-12 w-12 rounded-full bg-primary/10">
+                  <img
+                    src={assets.listIconColored}
+                    className="h-5 w-5"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <p>
+                    {booking.car.brand} {booking.car.model}
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    {booking.createdAt.split("T")[0]}{" "}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 font-medium ">
+                <p className="text-sm text-gray-500">{booking.price}</p>
+                <p className="px-3 py-0.5 border border-borderColor rounded-full text-sm">
+                  {/* {price.status} */}
+                  
+                  </p>
+
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* monthly revenue  */}
+        <div></div>
+      </div>
     </div>
   );
 };
