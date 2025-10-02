@@ -167,8 +167,20 @@ const AddCar = () => {
             />
           </div>
         </div>
-        {/* car locatio */}
+        {/* car location  'New York', 'Los Angeles', 'Houston', 'Chicago'*/}
         <div className="flex flex-col w-full">
+           <label>Location </label>
+            <select
+              value={car.location}
+              onChange={(e) => setCar({ ...car, location: e.target.value })}
+              className="mt-1 px-3 py-2 border border-borderColor outline-none rounded-md"
+            >
+              <option value="">Select a location</option>
+              <option value="New York">New York</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Houston">Houston</option>
+              <option value="Chicago">Chicago</option>
+            </select>
 
         </div>
       </form>
