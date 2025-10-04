@@ -25,6 +25,8 @@ const AddCar = () => {
   return (
     <div className="px-4 py-10 md:px-10 flex-1 ">
       <Title
+      
+        align="left"
         title={"Add New Car "}
         subTitle="Fill in details to list a new car for booking, including pricing, availability 
       ad car specifications "
@@ -169,39 +171,41 @@ const AddCar = () => {
         </div>
         {/* car location  'New York', 'Los Angeles', 'Houston', 'Chicago'*/}
         <div className="flex flex-col w-full">
-           <label>Location </label>
-            <select
-              value={car.location}
-              onChange={(e) => setCar({ ...car, location: e.target.value })}
-              className="mt-1 px-3 py-2 border border-borderColor outline-none rounded-md"
-            >
-              <option value="">Select a location</option>
-              <option value="New York">New York</option>
-              <option value="Los Angeles">Los Angeles</option>
-              <option value="Houston">Houston</option>
-              <option value="Chicago">Chicago</option>
-            </select>
+          <label>Location </label>
+          <select
+            value={car.location}
+            onChange={(e) => setCar({ ...car, location: e.target.value })}
+            className="mt-1 px-3 py-2 border border-borderColor outline-none rounded-md"
+          >
+            <option value="">Select a location</option>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Houston">Houston</option>
+            <option value="Chicago">Chicago</option>
+          </select>
         </div>
         {/* car description */}
         <div className="flex flex-col w-full">
-            <label>Car Description </label>
-            <textarea
+          <label>Car Description </label>
+          <textarea
             rows={5}
-              placeholder="e.g. A luxurious SUV with a spacious interior and a powerful engin. "
-              required
-              value={car.description}
-              onChange={(e) => setCar({ ...car, description: e.target.value })}
-              className="border border-borderColor mt-1 outline-none px-3 py-2 rounded-md"
-            ></textarea>
-          </div>
+            placeholder="e.g. A luxurious SUV with a spacious interior and a powerful engine. "
+            required
+            value={car.description}
+            onChange={(e) => setCar({ ...car, description: e.target.value })}
+            className="border border-borderColor mt-1 outline-none px-3 py-2 rounded-md"
+          ></textarea>
+        </div>
 
-          <button className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white
-           mt-4 rounded-md font-medium w-max cursor-pointer">
-            <img src={assets.tick_icon} alt="" />
-            list your car
-          </button>
+        <button
+          className="flex items-center gap-2 px-4 py-2.5 bg-primary text-white
+           mt-4 rounded-md font-medium w-max cursor-pointer"
+        >
+          <img src={assets.tick_icon} alt="" />
+          list your car
+        </button>
       </form>
-      {/* =bn */}
+      
     </div>
   );
 };
