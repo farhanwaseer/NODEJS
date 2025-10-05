@@ -44,8 +44,7 @@ const ManageCars = () => {
                   />
                   <div className="max-md:hidden">
                     <p className="font-medium">
-                      {car.brand}
-                      {car.modle}
+                      {car.brand} {car.model}
                     </p>
                     <p className="text-xs text-gray-500">
                       {car.seating_capacity} ● {car.transmission}

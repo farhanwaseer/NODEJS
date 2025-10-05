@@ -104,6 +104,7 @@ const MyBookings = () => {
           </div>
         ))}
       </div>
+     
     </div>
   );
 };
