@@ -1,9 +1,8 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import { Children } from "react";
 
-// Initialize Express App
+// Initialize Express App  
 
 const app = express();
 
@@ -12,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => res.send("Server is running "));
+app.get("/", (req, res) => res.send("Server is running <h1>farhan waseer</h1>  "));
 
 const PORT = process.env.PORT || 3000;
 
