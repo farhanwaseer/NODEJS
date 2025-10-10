@@ -2,7 +2,9 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import connectDB from "./configs/db.js";
+// routes import
 import userRouter from "./routes/userRoutes.js";
+import ownerRouter from "./routes/ownerRoutes.js";
 
 // Initialize Express App
 
@@ -16,6 +18,7 @@ await connectDB();
 app.use(cors());
 app.use(express.json());
 
+// Routes
 app.get("/", (req, res) =>
   res.send(
     "Server is running <h1>farhan waseer</h1> <h2>/car-rental Database Connected Successfully </h2>  "
@@ -23,10 +26,8 @@ app.get("/", (req, res) =>
 );
 
 // Routes  User
-app.use('/api/user', userRouter)
-
-
-
+app.use("/api/user", userRouter);
+app.use("/api/owner", ownerRouter);
 
 // Listen Server
 
