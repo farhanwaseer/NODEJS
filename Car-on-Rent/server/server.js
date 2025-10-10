@@ -3,20 +3,23 @@ import "dotenv/config";
 import cors from "cors";
 import connectDB from "./configs/db.js";
 
-// Initialize Express App  
+// Initialize Express App
 
 const app = express();
 
 //  Connect DataBase()
-await connectDB()
-
+await connectDB();
 
 // Middleware
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => res.send("Server is running <h1>farhan waseer</h1>  "));
+app.get("/", (req, res) =>
+  res.send(
+    "Server is running <h1>farhan waseer</h1> <h2>/car-rental Database Connected Successfully </h2>  "
+  )
+);
 
 const PORT = process.env.PORT || 3000;
 
