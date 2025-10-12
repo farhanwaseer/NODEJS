@@ -1,10 +1,10 @@
 import mongoose, { model } from "mongoose";
 
-const { objectId } = mongoose.Schema.Types;
+const { ObjectId } = mongoose.Schema.Types;
 
 const carSchema = new mongoose.Schema(
   {
-    owner: { type: objectId, ref: "User" }, // Car owner (User reference)
+    owner: { type: ObjectId, ref: "User" }, // Car owner (User reference)
     brand: { type: String, required: true, trim: true },
     model: { type: String, required: true, trim: true },
     image: { type: String, required: true }, // image URL or file path
