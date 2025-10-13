@@ -5,6 +5,7 @@ import connectDB from "./configs/db.js";
 // routes import
 import userRouter from "./routes/userRoutes.js";
 import ownerRouter from "./routes/ownerRoutes.js";
+import bookingRouter from "./routes/bookingRoutes.js";
 
 // Initialize Express App
 
@@ -28,6 +29,7 @@ app.get("/", (req, res) =>
 // Routes  User
 app.use("/api/user", userRouter);
 app.use("/api/owner", ownerRouter);
+app.use("/api/bookings", bookingRouter);
 
 // Listen Server
 
