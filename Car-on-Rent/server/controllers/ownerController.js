@@ -1,10 +1,9 @@
-import { json } from "express";
 import User from "../models/User.js";
 import fs from "fs";
 import imagekit from "../configs/imageKit.js";
 import Car from "./../models/Car.js";
 import upload from "./../middleware/multer.js";
-import { error } from "console";
+import Booking from "../models/Booking.js";
 
 //  Change Role
 export const changeRoleToOwner = async (req, res) => {
@@ -112,6 +111,67 @@ export const getDashboardData = async (req, res) => {
       return res.json({ success: false, message: "Unauthorized" });
     }
     const cars = await Car.find({ owner: _id });
+    const bookings = await Booking.find({ owner: _id })
+      .populate("car")
+      .sort({ createdAt: -1 });
+    const pendingBookings = await Booking.find({
+      owner: _id,
+      status: "pending",
+    });
+    const completedBookings = await Booking.find({
+      owner: _id,
+      status: "confirmed",
+    });
+
+    // calculate monthly revenue from bookings where status is confirmed
+    const monthlyRevenue = bookings
+      .slice()
+      .filter((booking) => booking.status === "confirmed")
+      .reduce((acc, booking) => acc + booking.price, 0);
+
+    const dashboardData = {
+      totalCars: cars.length,
+      totalBookings: bookings.length,
+      pendingBookings: pendingBookings.length,
+      completedBookings: completedBookings.length,
+      recentBookings: bookings.slice(0, 3),
+      monthlyRevenue,
+    };
+    res.json({ success: true, dashboardData });
+  } catch (error) {
+    console.log(error.message);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+// API to update user Image
+
+export const updateUserImage = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const imageFile = req.file;
+    // upload image to imagekit
+    const fileBuffer = fs.readFileSync(imageFile.path);
+    const response = await imagekit.upload({
+      file: fileBuffer,
+      fileName: imageFile.originalname,
+      folder: "/users",
+    });
+
+    // optimization through imagekit url transformation
+    var optimizedImageUrl = imagekit.url({
+      path: response.filePath,
+      transformation: [
+        { width: "400" }, // Width resizing
+        { quality: "auto" }, // Auto compression
+        { format: "webp" }, // Convert to modern format
+      ],
+    });
+    //  upload to db
+    const image = optimizedImageUrl;
+
+    await User.findByIdAndUpdate(_id, { image });
+    res.json({success: true, message: 'Image Updated'})
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });
