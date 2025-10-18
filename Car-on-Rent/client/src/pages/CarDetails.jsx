@@ -55,8 +55,8 @@ const CarDetails = () => {
                 { icon: assets.fuel_icon, text: car.fuel_type },
                 { icon: assets.car_icon, text: car.transmission },
                 { icon: assets.location_icon, text: car.location },
-              ].map(({ icon, text }) => (
-                <div className="flex flex-col items-center bg-light p-4 rounded-lg">
+              ].map(({ icon, text , index}) => (
+                <div key={index} className="flex flex-col items-center bg-light p-4 rounded-lg">
                   <img src={icon} className="h-5 mb-2" alt="" />
                   {text}
                 </div>

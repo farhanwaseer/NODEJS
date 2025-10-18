@@ -1,12 +1,31 @@
 import { useState } from "react";
 import { assets, menuLinks } from "../assets/assets";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
 
-const Navbar = ({setShowLogin}) => {
+const Navbar = () => {
+  const { setShowLogin, user, logout, isOwner, setIsOwner, axios } =
+    useAppContext();
+
   const location = useLocation();
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate() 
-  console.log(menuLinks);
+  const navigate = useNavigate();
+  const changeRole = async () => {
+    try {
+      const { data } = await axios.post("/api/owner/change-role");
+      if (data.success) {
+        setIsOwner(true);
+        toast.success(data.message);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  // console.log(menuLinks);
   return (
     <div
       className={`flex items-center justify-between px-6 md:px-16 lg:px-24
@@ -30,15 +49,47 @@ const Navbar = ({setShowLogin}) => {
           </Link>
         ))}
         <div className="hidden lg:flex items-center text-sm gap-2 border  border-borderColor px-3 rounded-full max-w-56">
-          <input type="text"  className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" placeholder="Search Products"/>
+          <input
+            type="text"
+            className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
+            placeholder="Search Products"
+          />
           <img src={assets.search_icon} alt="search_icon" />
         </div>
         <div className="flex max-sm:flex-col items-start sm:items-center gap-6">
-          <button onClick={() => navigate('/owner') } className="Cursor-pointer">Dashboard</button>
-          <button onClick={() => setShowLogin(true)} className="Cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transation-all text-white rounded-lg  ">Login</button>
+          {/* ////////// */}
+
+          {/* {user ? (
+            <button onClick={() => navigate("/owner")} className="cursor-pointer">
+              Dashboard
+            </button>
+          ) : null} */}
+
+          <button
+            onClick={() => {
+              isOwner ? navigate("/owner") : changeRole();
+            }}
+            className="cursor-pointer"
+          >
+            {isOwner ? "Dashboard" : "List Cars"}
+          </button>
+
+          {/* ///////// */}
+          <button
+            className="Cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transation-all text-white rounded-lg  "
+            onClick={() => {
+              user ? logout() : setShowLogin(true);
+            }}
+          >
+            {user ? "Logout" : "Login"}
+          </button>
         </div>
       </div>
-      <button className="sm:hidden cursor-pointer" aria-label="Menu" onClick={() => setOpen(!open)}>
+      <button
+        className="sm:hidden cursor-pointer"
+        aria-label="Menu"
+        onClick={() => setOpen(!open)}
+      >
         <img src={open ? assets.close_icon : assets.menu_icon} alt="menu" />
       </button>
     </div>
